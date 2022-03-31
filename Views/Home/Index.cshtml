@@ -1,15 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    ViewData["Header"] = "Bowlers";
 }
 
 @model List<Bowler>
 
-<h1>Bowlers</h1>
 
-<ul>
+<h4> Here is a list of all the bowlers in our database. Please do not use this information and go egg their 
+    houses or anything. That's pretty illegal. Although feel free to publicly shame them for having their 
+    names in a database of bowlers.</h4> <br />
+
+<a asp-controller="Home" asp-action="Add" class="btn btn-success btn-lg">Add a new bowler</a><br /><br />
+
+<ol>
     @foreach (var b in Model)
-            {
-                <li>@b.BowlerLastName, @b.BowlerFirstName @b.BowlerMiddleInit</li>
-            }
+    {
+    <li>
+        @b.BowlerFirstName @b.BowlerMiddleInit @b.BowlerLastName
+        &emsp; &emsp; <a asp-controller="Home" asp-action="Edit" asp-route-bowlerid="@b.BowlerID" class="btn btn-primary m-1 p-1">Edit</a>
+        <a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@b.BowlerID" class="btn btn-danger m-1 p-1">Delete</a>
+    </li>
+        <ul>
+            <li>@b.BowlerAddress <br />
+            @b.BowlerCity, @b.BowlerState @b.BowlerZip <br />
+            @b.BowlerPhoneNumber</li>
 
-</ul>
+        </ul>
+    }
+
+</ol>

@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Edit Bowler";
+}
+
+@model Bowler
+
+<style>
+    div.validation-message {
+        color: rgb(220, 53, 69);
+        font-weight: 500
+    }
+</style>
+
+<h3 class="bg-dark text-white text-center p-1">Edit a bowler</h3>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        <label>First name:</label>
+        <input class="form-control text-success border border-primary bg-light" asp-for="BowlerFirstName" />
+    </div>
+
+    <div class="form-group">
+        <label>Middle initial:</label>
+        <input class="form-control text-success border border-primary bg-light" asp-for="BowlerMiddleInit" />
+    </div>
+
+    <div class="form-group">
+        <label>Last name:</label>
+        <input class="form-control text-success border border-primary bg-light" asp-for="BowlerLastName" />
+    </div>
+
+    <div class="form-group">
+        <label>Address:</label>
+        <input class="form-control text-success border border-primary bg-light" asp-for="BowlerAddress" />
+    </div>
+
+    <div class="form-group">
+        <label>City:</label>
+        <input class="form-control text-success border border-primary bg-light" asp-for="BowlerCity" />
+    </div>
+
+    <div class="form-group">
+        <label>State (abbreviated, e.g. UT):</label>
+        <input class="form-control text-success border border-primary bg-light" asp-for="BowlerState" />
+    </div>
+
+    <div class="form-group">
+        <label>Zip code:</label>
+        <input class="form-control text-success border border-primary bg-light" asp-for="BowlerZip" />
+    </div>
+
+    <div class="form-group">
+        <label>Phone number:</label>
+        <input class="form-control text-success border border-primary bg-light" asp-for="BowlerPhoneNumber" />
+    </div>
+
+    <div class="form-group">
+        <label>Team ID:</label>
+        <input class="form-control text-success border border-primary bg-light" asp-for="TeamID" />
+    </div>
+
+    <input type="hidden" asp-for="BowlerID" />
+
+    <br />
+    <button type="submit" class="btn btn-dark p-1">Save</button>
+    <!--<input type="hidden" name="bowlerid" value="" />-->
+    <a class="btn btn-light p-1" asp-controller="Home" asp-action="Index">Cancel</a>
+
+</form>
